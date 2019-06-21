@@ -1,0 +1,47 @@
+<div class="container wrapper " >
+
+  <div class="container title">
+    <div class="row">
+      <div class="col-sm-9">
+        <h5>{{problem}}</h5>
+      </div>
+      <div class="col-sm">
+          <div class="container">
+              <button type="button" class="btn btn-primary" (click)="generateEquation()" >
+                  New
+              </button>
+              <div class="form-group form-check">
+                  <input [(ngModel)]="isComplex" type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Complex</label>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container solver">
+    <div class="equation-holder">
+      {{equation.toString()}}
+    </div>
+    <div class="form-group container">
+      <div class="row">
+        <div class="col-sm-9">
+          <input [(ngModel)]="userSolution" 
+          [ngClass]="{
+            correct: correct ===  true,
+            wrong: correct === false
+          }" type="text" class="form-control" id="solution" >
+        </div>
+        <div class="col-sm-3">
+          <button (click)="checkSolution()" type="button" class="btn btn-primary">Check</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2" *ngIf="solution"> 
+          <span class="badge ">{{solution}} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

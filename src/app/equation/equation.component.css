@@ -1,0 +1,25 @@
+.wrapper {
+   padding: 2%;
+   border: 2px solid rgb(199, 191, 191);
+   border-radius: 3px;
+}
+
+.title, .solver {
+   border: 1px solid rgb(233, 163, 163);
+   border-radius: 9px;
+   padding: 2%;
+   margin: 1vh; border-right: none;
+   border-left: 3px solid rgb(233, 163, 163);
+}
+
+.equation-holder {
+   padding: 2%;
+}
+
+.correct {
+   background-color: rgb(159, 200, 159);
+}
+
+.wrong {
+   background-color: rgb(233, 86, 86); 
+}
