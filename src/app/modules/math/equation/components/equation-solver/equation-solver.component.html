@@ -1,0 +1,27 @@
+<div class="container solver">
+  <div class="equation-holder">
+    {{equation.toString()}}
+  </div>
+  <div class="form-group container">
+    <div class="row">
+      <div class="col-sm-9">
+        <input [(ngModel)]="userSolution" 
+        [ngClass]="{
+          correct: isUserSolutionCorrect ===  true,
+          wrong: isUserSolutionCorrect === false
+        }" type="text" class="form-control" id="solution" >
+      </div>
+      <div class="col-sm-3">
+        <button (click)="checkSolution()" type="button" class="btn btn-primary">Check</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3">
+        <button type="button" class="btn btn-primary" (click)="showSolution()" >Show solution</button>
+      </div>
+      <div class="col-sm-2" *ngIf="displaySolutionToUser"> 
+        <span class="badge ">{{solution}} </span>
+      </div>
+    </div>
+  </div>
+</div>

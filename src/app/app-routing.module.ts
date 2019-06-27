@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 
-import { EquationComponent } from './equation/equation.component';
+import { EquationComponent } from './modules/math/equation/equation.component';
 import { HomeComponent } from './home/home.component';
 
 

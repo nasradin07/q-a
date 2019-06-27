@@ -1,0 +1,8 @@
+
+.title {
+   border: 1px solid rgb(233, 163, 163);
+   border-radius: 9px;
+   padding: 2%;
+   margin: 1vh; border-right: none;
+   border-left: 3px solid rgb(233, 163, 163);
+}

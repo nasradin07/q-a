@@ -1,0 +1,12 @@
+<div class="container wrapper " >
+
+  <app-equation-problem
+    (nextEquation)="getNextEquation($event)"
+  ></app-equation-problem>
+
+
+  <app-equation-solver
+    [equation]="equation"
+  ></app-equation-solver>
+
+</div>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EnterTestComponent } from './enter-test.component';
+import { EquationSolverComponent } from './equation-solver.component';
 
-describe('EnterTestComponent', () => {
-  let component: EnterTestComponent;
-  let fixture: ComponentFixture<EnterTestComponent>;
+describe('EquationSolverComponent', () => {
+  let component: EquationSolverComponent;
+  let fixture: ComponentFixture<EquationSolverComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EnterTestComponent ]
+      declarations: [ EquationSolverComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EnterTestComponent);
+    fixture = TestBed.createComponent(EquationSolverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

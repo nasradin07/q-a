@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
+
 import {Equation, Fraction, Parser, Expression } from 'algebra.js';
+
 @Injectable({
   providedIn: 'root'
 })
 export class EquationService {
 
-  operations = ['add','subtract','multiply','divide'];
+ private _operations = ['add','subtract','multiply','divide'];
 
-  maxInt = 100;
-  maxFra = 20;
-  minNum = 1;
+  upperBoundForIntegers = 100;
+  upperBoundForFractions = 20;
 
   constructor() { 
+  }
+
+  public checkSolution({userSolution,equation}) {
+    return this.solveEquation(equation).toString() === userSolution;
   }
 
   public solveEquation(equation) {
@@ -19,25 +24,20 @@ export class EquationService {
   }
 
   public generateEquation(isComplex) {
-    console.log(isComplex);
     let equation = (isComplex ? this._generateComplexEquation() : this._generateSimpleEquation());
     return equation;
   }
 
   private _generateComplexEquation() {
-    let expr = this.generateExpression();
-    for (let i = 0; i < 3; i++) {
-      expr = expr.add(this.generateExpression(),false);
-    }
-    let expr2 = this.generateExpression();
-    return new Equation(expr,expr2);
+    let expression = this.generateExpression()
+      .add(this.generateExpression(),false)
+      .add(this.generateExpression(),false);
+
+    return new Equation(expression,this.generateExpression());
   }
 
   private _generateSimpleEquation() {
-    let expression= this.generateExpression();
-    let result = this.generateNumber();
-    let equation = new Equation(expression,result);
-    return equation;
+    return new Equation( this.generateExpression(),this.generateNumber());
   }
 
 
@@ -50,7 +50,7 @@ export class EquationService {
   }
 
   private generateOperation() {
-    return this.operations[this.randomNumber(this.operations.length - 1)];
+    return this._operations[this.randomNumber(this._operations.length - 1)];
   }
 
   private generateNumber() {
@@ -58,11 +58,11 @@ export class EquationService {
   }
 
   private generateInteger() {
-    return Math.round(Math.random()*this.maxInt);
+    return Math.round(Math.random()*this.upperBoundForIntegers);
   }
 
   private generateFraction() {
-    return new Fraction(this.randomNumber(this.maxFra),this.randomNumber(this.maxFra));
+    return new Fraction(this.randomNumber(this.upperBoundForFractions),this.randomNumber(this.upperBoundForFractions));
   }
 
   private randomNumber(upperBound) {
