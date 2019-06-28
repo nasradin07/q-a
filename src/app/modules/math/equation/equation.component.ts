@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EquationService } from './services/equation.service';
 
+import { EquationInterface } from './interfaces/equation.interface';
+import { ExpressionInterface } from './interfaces/expression.interface';
+
 @Component({
   selector: 'app-equation',
   templateUrl: './equation.component.html',
@@ -9,7 +12,7 @@ import { EquationService } from './services/equation.service';
 export class EquationComponent implements OnInit {
 
   problem = 'Solve equation';
-  equation;
+  equation: EquationInterface;
 
 constructor(
   private _equationService: EquationService

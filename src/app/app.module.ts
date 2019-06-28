@@ -12,8 +12,9 @@ import { MathModule } from './modules/math/math.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
-      ],
+    HeaderComponent,
+    
+  ],
   imports: [
     BrowserModule,
     FormsModule,

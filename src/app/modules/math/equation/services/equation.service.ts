@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import {Equation, Fraction, Parser, Expression } from 'algebra.js';
+import { EquationInterface } from '../interfaces/equation.interface';
+import { ExpressionInterface } from '../interfaces/expression.interface';
+import { FormatInterface } from '../interfaces/format.interface'
+import { FractionInterface } from '../interfaces/fractions.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +23,12 @@ export class EquationService {
     return this.solveEquation(equation).toString() === userSolution;
   }
 
-  public solveEquation(equation) {
+  public solveEquation(equation: EquationInterface): FormatInterface {
     return equation.solveFor('x');
   }
 
-  public generateEquation(isComplex) {
-    let equation = (isComplex ? this._generateComplexEquation() : this._generateSimpleEquation());
-    return equation;
+  public generateEquation(isComplex): EquationInterface {
+    return (isComplex ? this._generateComplexEquation() : this._generateSimpleEquation());
   }
 
   private _generateComplexEquation() {
@@ -36,12 +39,12 @@ export class EquationService {
     return new Equation(expression,this.generateExpression());
   }
 
-  private _generateSimpleEquation() {
+  private _generateSimpleEquation(): EquationInterface {
     return new Equation( this.generateExpression(),this.generateNumber());
   }
 
 
-  private generateExpression() {
+  private generateExpression(): ExpressionInterface {
     let expr = new Expression('x');
     let operation = this.generateOperation();
     let number = this.generateNumber();
@@ -61,7 +64,7 @@ export class EquationService {
     return Math.round(Math.random()*this.upperBoundForIntegers);
   }
 
-  private generateFraction() {
+  private generateFraction(): FractionInterface {
     return new Fraction(this.randomNumber(this.upperBoundForFractions),this.randomNumber(this.upperBoundForFractions));
   }
 
