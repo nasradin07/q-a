@@ -1,0 +1,39 @@
+<div class="conatiner">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-sm-6">
+      <div class="wrapper">
+        <div class="textare">
+
+        </div>
+        <div class="credentials">
+            <form>
+                <div class="form-group">
+                  <label for="nickname">Nickname</label>
+                  <input type="text" class="form-control" id="nickname" (blur)="validateNickname()" 
+                   placeholder="Enter nickname" name="nickname" required [(ngModel)]="nickname">
+                   <div class="error" *ngIf="error.nicknameError">
+                    <small id="nicknameError" class="form-text text-muted">
+                     {{nicknameErrorMsg}}
+                    </small>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="passowrd">Password</label>
+                  <input type="password" class="form-control" id="passowrd" placeholder="Password" 
+                  (blur)="validatePassword()"required name="password" [(ngModel)]="password">
+                  <div class="error" *ngIf="error.passwordError">
+                    <small id="nicknameError" class="form-text text-muted">
+                     {{passwordErrorMsg}}
+                    </small>
+                  </div>
+                </div>
+               
+                <button type="submit" class="btn btn-primary" (click)="joinTest()" >Submit</button>
+              </form>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

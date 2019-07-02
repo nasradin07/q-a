@@ -12,13 +12,10 @@ import { FractionInterface } from '../interfaces/fractions.interface';
 export class EquationService {
 
  private _operations = ['add','subtract','multiply','divide'];
-
   upperBoundForIntegers = 100;
   upperBoundForFractions = 20;
-
   constructor() { 
   }
-
   public checkSolution({userSolution,equation}) {
     return this.solveEquation(equation).toString() === userSolution;
   }
@@ -35,12 +32,11 @@ export class EquationService {
     let expression = this.generateExpression()
       .add(this.generateExpression(),false)
       .add(this.generateExpression(),false);
-
     return new Equation(expression,this.generateExpression());
   }
 
   private _generateSimpleEquation(): EquationInterface {
-    return new Equation( this.generateExpression(),this.generateNumber());
+    return new Equation(this.generateExpression(),this.generateNumber());
   }
 
 
@@ -48,7 +44,6 @@ export class EquationService {
     let expr = new Expression('x');
     let operation = this.generateOperation();
     let number = this.generateNumber();
-
     return expr[operation](number);
   }
 
@@ -71,5 +66,4 @@ export class EquationService {
   private randomNumber(upperBound) {
     return Math.ceil(Math.random()*upperBound);
   }
-
 }

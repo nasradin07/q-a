@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 
-import { EquationComponent } from './modules/math/equation/equation.component';
-import { HomeComponent } from './home/home.component';
+import * as routerConst from './app.routes';
+const routes = routerConst.routes
 
 
-const routes = [
-  { path: 'equations', component: EquationComponent},
-  { path: 'home', component: HomeComponent},
-  { path: '**',component: HomeComponent}
-]
+
 
 @NgModule({
   exports: [RouterModule],

@@ -8,9 +8,10 @@ import { EquationService } from '../../services/equation.service'
   styleUrls: ['./equation-solver.component.css']
 })
 export class EquationSolverComponent implements OnInit, OnChanges {
+  @Input() equation;
+
   isUserSolutionCorrect;
   solution;
-  @Input() equation;
   userSolution;
   displaySolutionToUser = false;
 

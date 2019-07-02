@@ -10,13 +10,11 @@ import { ExpressionInterface } from './interfaces/expression.interface';
   styleUrls: ['./equation.component.css']
 })
 export class EquationComponent implements OnInit {
-
   problem = 'Solve equation';
   equation: EquationInterface;
-
 constructor(
   private _equationService: EquationService
-) {}
+  ) {}
 
   ngOnInit() {
     this.generateEquation(false);
@@ -29,7 +27,4 @@ constructor(
   public generateEquation(isComplex) {
     this.equation = this._equationService.generateEquation(isComplex);
   }
-
-
-
 }
