@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 
-import * as routerConst from './app.routes';
-const routes = routerConst.routes
-
-
-
+import { routes } from './app.routes';
 
 @NgModule({
   exports: [RouterModule],

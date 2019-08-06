@@ -1,0 +1,18 @@
+  <div class="center-child" >
+    <h2 class="center-element">Naslov testa</h2>
+  </div>
+  <div class="container test-wrapper">
+    <div class="container question" *ngFor="let questionObj of questions">
+      <h4>{{questionObj.question}}</h4>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let answerObj of questionObj.answers">
+          {{answerObj.answer}}
+        </li>
+      </ul>
+    </div>
+    <div class="center-child">
+      <div class="center-elemen">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </div>
+  </div>

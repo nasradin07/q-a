@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
-import { TestsComponent } from './tests/tests.component'
-import { AvailableTestComponent } from './tests/available-test/available-test.component';
-import { JoinTestComponent } from './tests/join-test/join-test.component';
+import { TestComponent } from './test/test.component'
+import { AvailableTestComponent } from './available-test/available-test.component';
+import { JoinTestComponent } from './join-test/join-test.component';
 import { HomeComponent } from './home.component';
+
+import { HomeRoutingModule } from './home-routing.module'
+
+import { TestService } from './services/test.service';
+import { JoinTestService } from './services/join-test.service';
 
 @NgModule({
   declarations: [
-    TestsComponent,
+    TestComponent,
     AvailableTestComponent,
     JoinTestComponent,
     HomeComponent
@@ -18,9 +22,13 @@ import { HomeComponent } from './home.component';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
-  ],
+    HomeRoutingModule
+    ],
   exports: [
-  ]
+  ],
+  providers: [
+    TestService,
+  JoinTestService
+]
 })
 export class HomeModule { }

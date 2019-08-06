@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { JoinTestService } from '../../../services/join-test.service';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+
+import { JoinTestService } from '../services/join-test.service';
 
 @Component({
   selector: 'app-join-test',
@@ -18,7 +21,9 @@ export class JoinTestComponent implements OnInit {
   passwordErrorMsg: string = 'Password error'
   errorMessage: string = "Bad inputs";
   constructor(
-    private _joinTestService: JoinTestService
+    private _joinTestService: JoinTestService,
+    private _location: Location,
+    private _router: Router
   ) { }
 
   ngOnInit() {
@@ -26,7 +31,8 @@ export class JoinTestComponent implements OnInit {
   }
 
   public joinTest() {
-  
+    this._router.navigateByUrl('/home/test');
+    
   }
 
   public gotToTest() {

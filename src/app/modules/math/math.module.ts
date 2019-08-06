@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+//rOUTER
+import { MathRoutingModule } from './math-routing.module'
+
 /* COMPONENTS */
+import { MathComponent } from './math/math.component';
 import { EquationComponent } from './equation/equation.component';
 import { EquationProblemComponent } from './equation/components/equation-problem/equation-problem.component';
 import { EquationSolverComponent } from './equation/components/equation-solver/equation-solver.component';
@@ -14,17 +18,17 @@ import { EquationService } from './equation/services/equation.service';
   declarations: [
     EquationComponent,
     EquationProblemComponent,
-    EquationSolverComponent
+    EquationSolverComponent,
+    MathComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    MathRoutingModule
   ],
   providers: [
     EquationService
   ],
-  exports: [
-    EquationComponent
-  ]
+  exports: [  ]
 })
 export class MathModule { }

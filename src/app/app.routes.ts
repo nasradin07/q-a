@@ -1,10 +1,8 @@
-import { Routes} from '@angular/router';
-
-import { EquationComponent } from './modules/math/equation/equation.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
+import { Routes } from '@angular/router';
 
 
 export const routes: Routes = [
-  { path: 'equations', component: EquationComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**',component: PageNotFoundComponent}
 ]
